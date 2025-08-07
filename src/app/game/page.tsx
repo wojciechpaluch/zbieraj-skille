@@ -42,7 +42,14 @@ const getRandomItem = () => {
     };
 };
 
-const Particle = ({ x, y, color, onComplete }) => (
+type ParticleProps = {
+    x: number;
+    y: number;
+    color: string;
+    onComplete: () => void;
+};
+
+const Particle: React.FC<ParticleProps> = ({ x, y, color, onComplete }) => (
     <motion.div
         className={`absolute w-3 h-3 rounded-full bg-gradient-to-r ${color}`}
         initial={{ x, y, opacity: 1, scale: 1 }}
